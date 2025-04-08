@@ -1,0 +1,28 @@
+{
+  "name": "inception",
+  "version": "1.0.0",
+  "description": "namste react",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/riddhivinayak/NAMASTE-REACT.git"
+  },
+  "author": "riddhi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/riddhivinayak/NAMASTE-REACT/issues"
+  },
+  "homepage": "https://github.com/riddhivinayak/NAMASTE-REACT#readme",
+  "devDependencies": {
+    "parcel": "^2.14.4"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "browserslist":[
+    "last 2 versions "]
+  
+}
