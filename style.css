@@ -75,3 +75,37 @@ font-size: 23px;
 .filter{ display: flex;
 
 }
+  .line a {
+        color: #ff6600; /* change to any color you want */
+        text-decoration: none; /* removes the underline */
+      }
+      
+
+     .line a:hover {
+            text-decoration: underline; /* adds the underline back on hover */
+        color: red; /* change to any color you want */
+     }
+
+     .menu
+     
+     { margin-top: 5px;
+        margin-left: 5px;
+        padding: 5px;
+        background-color: #f0f0f0;
+     
+     width: 60vb;
+        background-color: beige;
+   
+        border: 1px solid black;
+        padding: 10px;
+     }
+     .menuname{
+       
+        font-weight: bold;
+        margin: 5px;
+     }
+     .reslink {
+        color: #ff6600; /* change to any color you want */
+        text-decoration: none; /* removes the underline */
+      }
+      

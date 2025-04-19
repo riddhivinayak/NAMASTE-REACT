@@ -2,12 +2,12 @@ import ResCard from "./ResCard";
 import resList from "../utils/MockData";
 import { useState,useEffect } from "react";
 import Shimmer from "./Shimmer";
-
+import { Link } from "react-router-dom";
 const Body =()=>
 
     {   
         //whenevr state variable 
-        console.log("Body component");
+       // console.log("Body component");
 // USING HTHE MOCK DATA
         const [listofRest, setlistofRes] = useState([]);
 
@@ -26,7 +26,7 @@ const Body =()=>
         
 
         const json = await data.json();
-        console.log(json);
+     //   console.log(json);
 
         //optinal chaining
      setlistofRes(json?.data?.cards[1].card?.card?.gridElements?.infoWithStyle?.restaurants);
@@ -36,7 +36,8 @@ const Body =()=>
         
 // showing loading screen is not a good practice better is using shimmmer or skeleton loader
 //condtional rendering
-     if(listofRest.length===0){
+     if(listofRest.length===0){ 
+        
      return <Shimmer></Shimmer>;  
          } ;
             return( 
@@ -95,14 +96,17 @@ const Body =()=>
             <div className="res-container">
                 {/*here we will put res-card component*/}
                 
-                {
+             {//using keys (not acceptable) <<index of key <<<< key as a uniue id from backend(best)
        
-     //using keys (not acceptable) <<index of key <<<< key as a uniue id from backend(best)
-       filteredRestList.map( 
-            (restaraunts) =>
-            (<ResCard key={restaraunts.info.id} resData={restaraunts}/>))
-        }
- 
+     
+                 filteredRestList.map
+                     ( 
+                     (restaraunts) =>
+                        (
+                      <Link className="reslink" to={"/restaurant/"+restaraunts.info.id} key={restaraunts.info.id}><ResCard  resData={restaraunts}/></Link>
+                    ))
+        
+             }
        </div>
     
         </div>
