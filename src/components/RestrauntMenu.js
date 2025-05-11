@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
-import{MENU_RES_API} from "../utils/constants";
+import{MENU_RES_API} from "../utils/constants"; 
 
 const RestrauntMenu = () => {
 
   const [resinfo, setResInfo] = useState(null);
    const {resId} = useParams(); // Extracting restaurant id from the URL
   console.log(resId);
-
     useEffect(() => {
 
       fetchMenu();

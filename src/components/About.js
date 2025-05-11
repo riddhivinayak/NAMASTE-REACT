@@ -1,13 +1,32 @@
 
-
-const About = () => {
+ import User from './User';
+import UserClass from './Userclass';
+import React from 'react';
+class About extends React.Component 
+{ constructor(props) {
+    super(props);
+   // console.log(" Parent Constructor called");
+    this.state = {
+        count: 0,
+    };
+} 
+componentDidMount() {
+  //  console.log(" Parent Component Did Mount called");
+ 
+}
+render() {
+  //  console.log(" Parent Render called");
     return (
-<div>
-    <h1>ABOUT US</h1>
-    <p>this is the about page and it is the best food ordering app out there you will be amazed by out services </p>
-</div>
-
+        <div>
+            <h1>About Us</h1>
+        {// <User name={"RIDDHI (FUNCTION)"}></User>
+        }
+            <UserClass name ={"RIDDHI  (CLASS)"}></UserClass>
+        </div>
     );
+}
+
+   
 };
 
 export default About;

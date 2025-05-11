@@ -2,7 +2,7 @@
   import { use, useEffect, useState } from "react";
   import { Link } from "react-router-dom";
 const  Header =() =>
-    { console.log("Header component")
+    { //console.log("Header component")
       const [btnname,setbtnname] = useState("Login");
 
 //1
@@ -21,7 +21,9 @@ const  Header =() =>
 //3
 //if dependency array is passed, it will run when the state variable is changed
   useEffect(()=>{
-    console.log("useEffect is called when btnname is changed")},[btnname]);
+   // console.log("useEffect is called when btnname is changed")
+   },[btnname]
+   );
 
 
 
