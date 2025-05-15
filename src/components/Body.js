@@ -1,8 +1,9 @@
 import ResCard from "./ResCard";
-import resList from "../utils/MockData";
+//import resList from "../utils/MockData";
 import { useState,useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineCheck from "../utils/useOnlinecheck";
 const Body =()=>
 
     {   
@@ -32,7 +33,9 @@ const Body =()=>
      setlistofRes(json?.data?.cards[1].card?.card?.gridElements?.infoWithStyle?.restaurants);
      setFilteredResList(json?.data?.cards[1].card?.card?.gridElements?.infoWithStyle?.restaurants);
         };
-       
+       if(!useOnlineCheck()){
+        return <h1>Offline, please check your internet connection</h1>
+       }
         
 // showing loading screen is not a good practice better is using shimmmer or skeleton loader
 //condtional rendering

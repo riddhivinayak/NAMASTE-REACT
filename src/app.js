@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, {lazy, Suspense} from "react";//calling lazy from react
 import ReactDOM from "react-dom/client"
 import Header from "./components/Headers";
 import Body from "./components/Body";
@@ -9,8 +9,10 @@ import ContactUs from  "./components/ContactUs";
 import Error from "./components/Error";
 import Cart from "./components/Cart";
 import RestrauntMenu from "./components/RestrauntMenu";
+//import Grocery from "./components/grocery"; now we will not import grocery like this
 
-
+const Grocery= lazy(()=> import("./components/grocery"));//this will import the grocery component only when it is needed
+//this is called code splitting
  const Applayout =() =>
  {
     return(
@@ -40,6 +42,11 @@ import RestrauntMenu from "./components/RestrauntMenu";
             element:<Body/>,
 
             },
+             {
+            path:"/grocery",
+            element:<Suspense fallback={<h1>loading</h1>}><Grocery/></Suspense>
+         }
+        ,
         {
             path:"/cart",
             element:<Cart/>

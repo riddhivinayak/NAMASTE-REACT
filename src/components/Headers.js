@@ -1,9 +1,11 @@
   import { LOGO_URL } from "../utils/constants";
-  import { use, useEffect, useState } from "react";
+  import {  useEffect, useState } from "react";
   import { Link } from "react-router-dom";
+  import useOnlineCheck from  "../utils/useOnlinecheck";
 const  Header =() =>
     { //console.log("Header component")
       const [btnname,setbtnname] = useState("Login");
+      const onlinevariable = useOnlineCheck();
 
 //1
       //if no dependency array is passed, it will run on every render
@@ -35,9 +37,11 @@ const  Header =() =>
           </div>
              <div className="nav-items">
                <ul>
+                <li>Online Status ={onlinevariable ? "🟢":"🔴"}</li>
                <li className="line"><Link to="/home">Home</Link></li>
                  <li className="line"><Link to="/about" >About</Link></li>
                  <li className="line"><Link to="/contact">Contact Us</Link></li>
+                 <li className="line"> <Link to="/grocery">Grocery</Link></li> 
                  <li className="line"> <Link to="/cart">Cart</Link></li> 
                  <button className="login-btn"
                  onClick={()=>{
