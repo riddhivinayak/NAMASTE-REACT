@@ -46,12 +46,12 @@ const Body =()=>
             return( 
         <div className="body">
          
-            <div className="filter">
+            <div className="flex items-center shadow-lg">
 
-               <div className="Search-btn"> 
+               <div className="px-4 py-2" > 
               
                 <input type="text" placeholder="Search for Restraunts" 
-                className="search-box"
+                className="border border-gray-400 rounded-md p-2 m-2 cursor-pointer hover:bg-pink-100"
                  value={searchText} 
                  onChange={(e)=>{ 
                 
@@ -59,7 +59,7 @@ const Body =()=>
                  }}
                  />
                
-               <button onClick={()=>
+               <button className="px-2 py-2 bg-pink-100 rounded-lg cursor-pointer hover:bg-pink-200"onClick={()=>
                 {  
                    
                     
@@ -85,18 +85,18 @@ const Body =()=>
 
 
 
-                <button className="filter-btn" 
+                <button className="px-2 py-2 bg-pink-100 rounded-lg m-2 cursor-pointer hover:bg-pink-200" 
                 onClick={()=>{
                     //Filter logic here
                     const filterList =listofRest.filter(
-                        (restaraunts)=> restaraunts.info.avgRating>4
+                        (restaraunts)=> restaraunts.info.avgRating>4.3
                     );
                     setFilteredResList(filterList);
 
                  } }
                 >Top Rated button</button>
             </div>
-            <div className="res-container">
+            <div className="flex flex-wrap ">
                 {/*here we will put res-card component*/}
                 
              {//using keys (not acceptable) <<index of key <<<< key as a uniue id from backend(best)

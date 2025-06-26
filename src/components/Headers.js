@@ -31,18 +31,18 @@ const  Header =() =>
 
         return (
 
-        <div className="header">
+        <div className="flex justify-between items-center bg-pink-50 shadow-lg h-40">
           <div>
-            <img  className="logo" src = {LOGO_URL}/>
+            <img  className="w-50 h-40" src = {LOGO_URL}/>
           </div>
              <div className="nav-items">
-               <ul>
-                <li>Online Status ={onlinevariable ? "🟢":"🔴"}</li>
-               <li className="line"><Link to="/home">Home</Link></li>
-                 <li className="line"><Link to="/about" >About</Link></li>
-                 <li className="line"><Link to="/contact">Contact Us</Link></li>
-                 <li className="line"> <Link to="/grocery">Grocery</Link></li> 
-                 <li className="line"> <Link to="/cart">Cart</Link></li> 
+               <ul className="flex p-4 ">
+                <li >Online Status ={onlinevariable ? "🟢":"🔴"}</li>
+               <li className="px-4"><Link to="/home">Home</Link></li>
+                 <li className="px-4"><Link to="/about" >About</Link></li>
+                 <li className="px-4"><Link to="/contact">Contact Us</Link></li>
+                 <li className="px-4"> <Link to="/grocery">Grocery</Link></li> 
+                 <li className="px-4"> <Link to="/cart">Cart</Link></li> 
                  <button className="login-btn"
                  onClick={()=>{
                   if(btnname === "Login")
