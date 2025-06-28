@@ -1,4 +1,4 @@
-import ResCard from "./ResCard";
+import ResCard ,{WithPromotedLabel} from "./ResCard";
 //import resList from "../utils/MockData";
 import { useState,useEffect } from "react";
 import Shimmer from "./Shimmer";
@@ -17,6 +17,8 @@ const Body =()=>
        
          const [searchText, setSearchText] = useState("");
 
+         const ResCardWithPromotedLabel = WithPromotedLabel(ResCard);
+
         useEffect(()=>{
           fetchData();
         },
@@ -27,7 +29,7 @@ const Body =()=>
         
 
         const json = await data.json();
-     //   console.log(json);
+     //  console.log(json);
 
         //optinal chaining
      setlistofRes(json?.data?.cards[1].card?.card?.gridElements?.infoWithStyle?.restaurants);
@@ -39,12 +41,13 @@ const Body =()=>
         
 // showing loading screen is not a good practice better is using shimmmer or skeleton loader
 //condtional rendering
+
      if(listofRest.length===0){ 
         
      return <Shimmer></Shimmer>;  
          } ;
             return( 
-        <div className="body">
+             <div className="body">
          
             <div className="flex items-center shadow-lg">
 
@@ -96,7 +99,12 @@ const Body =()=>
                  } }
                 >Top Rated button</button>
             </div>
+
+
+
             <div className="flex flex-wrap ">
+               
+
                 {/*here we will put res-card component*/}
                 
              {//using keys (not acceptable) <<index of key <<<< key as a uniue id from backend(best)
@@ -106,7 +114,13 @@ const Body =()=>
                      ( 
                      (restaraunts) =>
                         (
-                      <Link className="reslink" to={"/restaurant/"+restaraunts.info.id} key={restaraunts.info.id}><ResCard  resData={restaraunts}/></Link>
+                      <Link className="reslink" to={"/restaurant/"+restaraunts.info.id} key={restaraunts.info.id}>
+                        { restaraunts.info.isOpen ? (<ResCardWithPromotedLabel resData={restaraunts}/>)
+                        : ( <ResCard  resData={restaraunts}/>) }
+
+                       
+                        
+                        </Link>
                     ))
         
              }

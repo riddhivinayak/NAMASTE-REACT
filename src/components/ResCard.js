@@ -16,5 +16,15 @@ const ResCard = (props)=>
               
            </div>
        )
+    }
+   export const WithPromotedLabel = (ResCard) => {
+        return (props) => {
+            return (
+                <div className="Open">
+                    <span className="absolute bg-pink-100 text-black font-mono p-1 m-2 rounded-lg">Promoted</span>
+                    <ResCard {...props} />
+                </div>
+            );
+        };
     };
     export default ResCard;
