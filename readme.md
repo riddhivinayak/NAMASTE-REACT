@@ -1,4 +1,4 @@
-#namaste react by akashay
+
 #parcel
 
 // app structure 
